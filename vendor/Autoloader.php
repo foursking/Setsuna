@@ -1,6 +1,6 @@
 <?php
 
-/** * */
+/** **/
 
 require_once __DIR__.'/Setsuna/Core/Loader.php';
 //require_once __DIR__.'/Setsuna/Core/Pimple.php';

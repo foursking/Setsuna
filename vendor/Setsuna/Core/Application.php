@@ -1,21 +1,17 @@
 <?php
 
-namespace Setsuna;
-
-use Setsuna\Router;
+namespace Setsuna\Core;
 use Setsuna\Core\Loader;
-
+use Setsuna\Router\Router;
 use \Exception;
 
 
 class Application
-{
-    protected $root;
-    public $config = array();
+{ 
+	public $config = array();
 	public $classSubfix = 'Controller';
 	public $funcSubfix = 'Action';
-
-
+    protected $root;
     protected $loader;
 	protected $router;
 

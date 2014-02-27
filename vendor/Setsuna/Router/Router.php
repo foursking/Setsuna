@@ -1,9 +1,9 @@
 <?php
 
-namespace Setsuna;
+namespace Setsuna\Router;
 
 
-class Router {
+class Router{
 
     private $rules = array();
     private $segment;

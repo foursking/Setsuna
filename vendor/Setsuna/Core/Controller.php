@@ -1,6 +1,6 @@
 <?php
 
-namespace Setsuna;
+namespace Setsuna\Core;
 
 
 class Controller

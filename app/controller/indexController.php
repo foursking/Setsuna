@@ -1,6 +1,6 @@
 <?php
 
-use Setsuna\Controller;
+use Setsuna\Core\Controller;
  
 class indexController extends Controller
 {

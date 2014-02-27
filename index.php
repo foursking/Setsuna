@@ -2,10 +2,11 @@
 
 use Setsuna\Application;
 
-require __DIR__.'/vendor/framework/Autoloader.php';
+require __DIR__.'/vendor/Autoloader.php';
 
 
-$app = new Application(__DIR__ . '/app/');
+$app = new \Setsuna\Core\Application(__DIR__ . '/app');
 
 $app->run();
+
 
