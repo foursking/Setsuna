@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    $baseDir . '/flight/Flight.php',
+    $baseDir . '/Kint.class.php',
 );

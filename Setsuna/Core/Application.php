@@ -49,7 +49,7 @@ class Application
             }
         });
 
-        $this->router->rules($this->config['routers']);
+        //$this->router->rules($this->config['routers']);
     }
 
     /**
@@ -62,17 +62,14 @@ class Application
         list($call, $param) = $this->router->dispatch($reqUri);
         if (is_array($call)) {
             $class = empty($call[0]) ? 'index'.$this->classSubfix : $call[0].$this->classSubfix;
-            $func = empty($call[1]) ? 'index'.$this->funcSubfix : $call[1].$this->classSubfix;
+            $func = empty($call[1]) ? 'index'.$this->funcSubfix : $call[1].$this->funcSubfix;
             $c = new $class($this);
-
             if (method_exists($c, 'init')) {
                 $c->init();
             }
             foreach ($param as $key => $value) {
                 $c->$key = $value;
             }
-			echo $func;
-			exit;
 			//run it !!!
             return $c->{$func}();
         } else {
