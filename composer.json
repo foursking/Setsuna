@@ -1,6 +1,7 @@
 {
     "require": {
         "monolog/monolog": "1.2.*",
-		"pimple/pimple": "dev-master"
+		"pimple/pimple": "dev-master",
+		"knplabs/github-api": "1.3.*@dev"
     }
 }

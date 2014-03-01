@@ -56,8 +56,8 @@ class Application
      * 运行框架
      * @return type
      */
-    public function run()
-    {
+    public function run() {
+
         $reqUri = array_shift(explode('?', $_SERVER['REQUEST_URI']));
         list($call, $param) = $this->router->dispatch($reqUri);
         if (is_array($call)) {
@@ -76,14 +76,6 @@ class Application
 			// i dont know
             return $call($param);
         }
-    }
-
-
-    // write file content to dst
-    private function _getRequestUri() {
-        /* $arr = explode('?', $_SERVER['REQUEST_URI']); */
-        /* return $arr[0]; */
-		return array_shift(explode('?', $_SERVER['REQUEST_URI']));
     }
 }
 
