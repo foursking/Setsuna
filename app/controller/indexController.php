@@ -8,8 +8,32 @@ class indexController extends Controller
 		$client = $this->container['github'];
 		//$repositories = $client->api('user')->show('foursking');
 		$user = $client->api('user')->show('KnpLabs');
-		$repos = $client->api('repo')->find('php framework', array('language' => 'php'));
-		print_r($repos);
+		var_dump($user);
+		exit;
+		$userAllRepos = $client->api('repo')->find('@foursking', array('language' => 'all'));
+
+		var_dump($userAllRepos);
+
+		$languageSum = array();
+
+		foreach ($userAllRepos['repositories'] as $userRepos) {
+			if(!empty($userRepos['language'])){
+				if (isset($languageSum[$userRepos['language']])) {
+					$languageSum[$userRepos['language']]++;
+				} else {
+					$languageSum[$userRepos['language']] = 1;
+				}
+			}
+		}
+
+
+		/* $languageTotal = array_sum($languageSum); */
+
+		/* foreach ($languageSum as &$language) { */
+		/* 	$language = ($language / $languageSum); */
+		/* } */
+
+
 
 	}
 
@@ -18,7 +42,7 @@ class indexController extends Controller
 
 
 
-}
+	}
 
 
 
