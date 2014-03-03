@@ -15,10 +15,10 @@ class Controller
     private $scripts = array();
     private $styles = array();
     
-    public function __construct($app) {
+    public function __construct($container) {
         $this->template = $app->template;
         $this->config = $app->config;
-        $this->app = $app;
+        $this->container = $container;
     }
 
     /**

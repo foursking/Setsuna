@@ -1,6 +1,7 @@
 <?php
 
 use Setsuna\Db\Base;
+use Setsuna\Core\MyExpection;
 
 /**
  * BaseMongodb * MongoDB基础类
@@ -9,7 +10,7 @@ use Setsuna\Db\Base;
  */
 
 
-class Mongo implements Base
+class Mongo 
 {
 	static private $masterConf 	= array();
 	static private $slaveConf 	= array();

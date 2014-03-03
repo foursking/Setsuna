@@ -1,9 +1,9 @@
 <?php
 
-require __DIR__.'/Setsuna/Autoloader.php';
+require __DIR__.'/Setsuna/Bootstrap.php';
 
-$app = new \Setsuna\Core\Application(__DIR__ . '/app');
+$app = new \Setsuna\Core\Application();
+$container = $app->init($container);
 
-$app->run();
-
+$app->run($container);
 
