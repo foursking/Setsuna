@@ -3,19 +3,19 @@
 class Debug  {
 
 	 //	收集脚本运行中错误信息
-	STATIC $info   = array();
+	static $info   = array();
 	 //	收集Sql语句运行信息 
-	STATIC $sqls   = array();
+	static $sqls   = array();
 	 //	收集类自动加载信息
-	STATIC $includefile =array();
+	static $includefile =array();
 	 //	脚本运行开始时间
-	STATIC $startTime;
+	static $startTime;
 	 //	脚本运行结束时间 
-	STATIC $stopTime; 
+	static $stopTime; 
 	 //	是否DEBUG信息已经输出
-	STATIC $printErr = true;
+	static $printErr = true;
 	 //	定义不同错误等级别名
-	STATIC $msg    = array(
+	static $msg    = array(
 		 E_WARNING	=> '运行时警告',
 		 E_NOTICE	=> '运行时提醒',
 		 E_STRICT	=> '编码标准化警告',
@@ -27,15 +27,15 @@ class Debug  {
 
 
 	 // 脚本运行开始处获取脚本运行时间微秒值
-	STATIC PUBLIC function scriptStart() {
+	static public function scriptStart() {
 		self::$startTime = microtime(true);
 	}
 	 // 脚本运行结束处获取脚本运行时间微秒值
-	STATIC PUBLIC function scriptEnd(){
+	static public function scriptEnd(){
 		self::$stopTime = microtime(true);
 	}
 	 // 得到脚本运行时间
-	STATIC PRIVATE function resultTime() {
+	static PRIVATE function resultTime() {
 		return round(abs(self::$stopTime - self::$startTime) , 4);
 	}
 
@@ -50,7 +50,7 @@ class Debug  {
 	 * @Access public
 	 * @Return void
 	 */
-	STATIC PUBLIC function CatchDebug($errNo, $errStr, $errFile, $errLine) {
+	static public function CatchDebug($errNo, $errStr, $errFile, $errLine) {
 		if( ! isset(self::$msg[$errNo]))
 			$errNo = 'UNKOWN_ERROR';
 
@@ -75,7 +75,7 @@ class Debug  {
 	 * @Access 		public
 	 * @Return 		void
 	 */
-	STATIC PUBLIC function addmsg($mess, $type=0) {
+	static public function addmsg($mess, $type=0) {
 		if( DEBUG && DEBUG === true ){
 			switch($type){
 				case 0:		//正常信息
@@ -104,7 +104,7 @@ class Debug  {
 	 * @Access public
 	 * @Return void
 	 */
-	STATIC public function compareArray($type , $setArray , $comPareArray  ) {
+	static public function compareArray($type , $setArray , $comPareArray  ) {
 		$arr = array_keys($setArray);
 		$array = array_diff($arr , $comPareArray);
 		if(!empty($array))
@@ -153,7 +153,7 @@ OPTION;
 	 * @Access public
 	 * @Return void
 	 */
-	STATIC PUBLIC function debugPrint() {
+	static public function debugPrint() {
 			self::viewInfo();
 			$debugContent  = '';
 			$debugContent .= '<div style="float:left;clear:both;text-align:left;font-size:13px;color:#333;width:95%;margin:10px;padding:10px;background:#E7F7FF;border:1px dotted #778855;z-index:100">';
@@ -198,7 +198,7 @@ OPTION;
 	 * @Access public
 	 * @Return void
 	 */
-	STATIC public function viewInfo() {
+	static public function viewInfo() {
 		$viewFile = './' . rtrim(ltrim(APP_PATH ,'./') , '/') . '/View/' . trim(TEMPLATE_STYLE , '/') . '/' . strtolower($_GET['m']) . '/' . strtolower($_GET['a']) . '.' . TPL_PREFIX;
 		$ViewInfo='
 				<style>
