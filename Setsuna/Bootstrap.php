@@ -12,7 +12,6 @@ if(file_exists($venderFile)) require_once $venderFile;
 
 
 
-
 $container = new \Setsuna\Core\Pimple();
 $container['APP_ROOT'] = dirname(__DIR__). '/app/';
 
